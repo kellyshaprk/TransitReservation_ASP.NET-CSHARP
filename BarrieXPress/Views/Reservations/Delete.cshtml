@@ -1,0 +1,114 @@
+﻿@model BarrieXPress.Models.Reservation
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departure)
+        </dt>
+
+        @if (Model.Departure == 1)
+        {
+            <dd>Barrie</dd>
+        }
+        else if (Model.Departure == 2)
+        {
+            <dd>Orillia</dd>
+        }
+        else if (Model.Departure == 3)
+        {
+            <dd>Midland</dd>
+        }
+        else if (Model.Departure == 4)
+        {
+            <dd>Owen Sound</dd>
+        }
+        else if (Model.Departure == 5)
+        {
+            <dd>Muskoka</dd>
+        }
+        else if (Model.Departure == 6)
+        {
+            <dd>South Georgian Bay</dd>
+        }
+        else if (Model.Departure == 7)
+        {
+            <dd>Orangeville</dd>
+        }
+        else
+        {
+            <dd>@Html.DisplayFor(model => model.Departure)</dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Arrival)
+        </dt>
+
+        @if (Model.Arrival == 1)
+        {
+            <dd>Barrie</dd>
+        }
+        else if (Model.Arrival == 2)
+        {
+            <dd>Orillia</dd>
+        }
+        else if (Model.Arrival == 3)
+        {
+            <dd>Midland</dd>
+        }
+        else if (Model.Arrival == 4)
+        {
+            <dd>Owen Sound</dd>
+        }
+        else if (Model.Arrival == 5)
+        {
+            <dd>Muskoka</dd>
+        }
+        else if (Model.Arrival == 6)
+        {
+            <dd>South Georgian Bay</dd>
+        }
+        else if (Model.Arrival == 7)
+        {
+            <dd>Orangeville</dd>
+        }
+        else
+        {
+            <dd>@Html.DisplayFor(model => model.Arrival)</dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

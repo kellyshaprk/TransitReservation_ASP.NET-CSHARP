@@ -1,0 +1,32 @@
+﻿@model BarrieXPress.Models.Route
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Details</h2>
+
+<button class="btn btn-primary"
+        onclick="loadDoc('@Url.Action("Edit", "Routes",new { id = Model.RouteId })')">Edit
+</button>
+<button class="btn btn-primary"
+        onclick="loadDoc('@Url.Action("Delete", "Routes",new { id = Model.RouteId })')">Delete
+</button>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Distance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Distance)
+        </dd>
+    </dl>
+</div>
+<div id="edit"></div>

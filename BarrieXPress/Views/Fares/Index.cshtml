@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BarrieXPress.Models.Fare>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .jumbotron {
+        background: url(https://www.yrt.ca/en/resourcesGeneral/Interiors/About-Us_LARGE_Page_Banner.jpg);
+        height: 500px;
+        width: 1400px;
+        margin-left: -130px;
+    }
+
+    #h1 {
+        color: white;
+        margin-top: 350px;
+        font-size: 115px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="jumbotron">
+    <h1 id="h1"> Fare Info</h1>
+</div>
+
+<h2>Fare Info Index</h2>
+<p>
+    <button class="btn btn-primary"
+            onclick="loadDoc('@Url.Action("Create", "Fares")')">
+        Create New
+    </button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FareInfo)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FareInfo)
+            </td>
+            <td>
+                <button class="btn btn-primary"
+                        onclick="loadDoc('@Url.Action("Details", "Fares",new { id = item.FareId })')">
+                    Details
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+<div id="details"></div>

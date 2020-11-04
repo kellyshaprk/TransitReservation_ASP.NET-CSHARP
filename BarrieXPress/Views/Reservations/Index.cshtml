@@ -1,0 +1,125 @@
+﻿@model IEnumerable<BarrieXPress.Models.Reservation>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .jumbotron {
+        background: url(https://www.yrt.ca/en/about-us/resources/Page-Banner_GTA-Weekly-Pass.jpg);
+        height: 500px;
+        width: 1400px;
+        margin-left: -130px;
+    }
+
+    #h1 {
+        color: white;
+        margin-top: 350px;
+        font-size: 115px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="jumbotron">
+    <h1 id="h1"> My Trip</h1>
+</div>
+
+<h2>My Trip</h2>
+<p>
+    <button class="btn btn-primary"
+            onclick="loadDoc('@Url.Action("Create", "Reservations")')">
+        Create New
+    </button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Departure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arrival)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            @if (item.Departure == 1)
+            {
+                <td>Barrie</td>
+            }
+            else if (item.Departure == 2)
+            {
+                <td>Orillia</td>
+            }
+            else if (item.Departure == 3)
+            {
+                <td>Midland</td>
+            }
+            else if (item.Departure == 4)
+            {
+                <td>Owen Sound</td>
+            }
+            else if (item.Departure == 5)
+            {
+                <td>Muskoka</td>
+            }
+            else if (item.Departure == 6)
+            {
+                <td>South Georgian Bay</td>
+            }
+            else if (item.Departure == 7)
+            {
+                <td>Orangeville</td>
+            }
+            else
+            {
+                <td>@Html.DisplayFor(modelItem => item.Departure)</td>
+            }
+            @if (item.Arrival == 1)
+            {
+                <td>Barrie</td>
+            }
+            else if (item.Arrival == 2)
+            {
+                <td>Orillia</td>
+            }
+            else if (item.Arrival == 3)
+            {
+                <td>Midland</td>
+            }
+            else if (item.Arrival == 4)
+            {
+                <td>Owen Sound</td>
+            }
+            else if (item.Arrival == 5)
+            {
+                <td>Muskoka</td>
+            }
+            else if (item.Arrival == 6)
+            {
+                <td>South Georgian Bay</td>
+            }
+            else if (item.Arrival == 7)
+            {
+                <td>Orangeville</td>
+            }
+            else
+            {
+                <td>@Html.DisplayFor(modelItem => item.Arrival)</td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                <button class="btn btn-primary"
+                        onclick="loadDoc('@Url.Action("Details", "Reservations",new { id = item.ReservationId })')">
+                    Details
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+<div id="details"></div>
